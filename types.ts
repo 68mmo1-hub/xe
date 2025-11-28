@@ -1,3 +1,4 @@
+
 export enum CellType {
   Empty = 0,
   Wall = 1,
@@ -30,7 +31,7 @@ export interface QuestionData {
   options: string[];
   correctIndex: number;
   explanation: string;
-  category: 'Tư duy phản biện' | 'Đạo đức AI' | 'Logic học' | 'Quyền riêng tư';
+  category: 'Tư duy phản biện' | 'Đạo đức AI' | 'Logic học' | 'Quyền riêng tư' | 'Tin giả & Deepfakes' | 'Phân tích nguồn tin' | 'An ninh mạng';
 }
 
 export interface GameState {

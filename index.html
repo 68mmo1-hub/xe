@@ -2,17 +2,23 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>MindMaze AI: Tư Duy Phản Biện</title>
+    <meta name="description" content="Game mê cung luyện tư duy phản biện offline">
+    <meta name="theme-color" content="#050505">
+    <!-- Removed leading slash for relative path compatibility -->
+    <link rel="apple-touch-icon" href="pwa-192x192.png">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <script type="importmap">
 {
   "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
     "vite": "https://aistudiocdn.com/vite@^7.2.4",
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "vite-plugin-pwa": "https://aistudiocdn.com/vite-plugin-pwa@^1.2.0"
   }
 }
 </script>
@@ -33,6 +39,7 @@
               <div style="color: red; padding: 20px; font-family: monospace;">
                 <h1>SYSTEM ERROR</h1>
                 <p>${e.message}</p>
+                <p>Check console (F12) for details.</p>
               </div>
             `;
           }
