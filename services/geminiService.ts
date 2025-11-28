@@ -1,18 +1,28 @@
-
 import { GoogleGenAI, Type, Schema } from "@google/genai";
 import { QuestionData } from '../types';
 import { TOPICS } from '../constants';
 
 // Lấy API Key an toàn cho cả môi trường Node (process) và Vite (import.meta)
 const getApiKey = () => {
-  if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
-    return process.env.API_KEY;
+  // Ưu tiên 1: Biến môi trường từ file .env.local (theo hướng dẫn mới)
+  // @ts-ignore
+  if (import.meta && import.meta.env && import.meta.env.VITE_GEMINI_API_KEY) {
+    // @ts-ignore
+    return import.meta.env.VITE_GEMINI_API_KEY;
   }
+
+  // Ưu tiên 2: Biến môi trường chuẩn VITE_API_KEY (cấu hình cũ)
   // @ts-ignore
   if (import.meta && import.meta.env && import.meta.env.VITE_API_KEY) {
     // @ts-ignore
     return import.meta.env.VITE_API_KEY;
   }
+
+  // Ưu tiên 3: Biến môi trường hệ thống (dành cho server-side nếu có)
+  if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
+    return process.env.API_KEY;
+  }
+  
   return '';
 };
 
